@@ -5,6 +5,9 @@ table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
 }
-td{
+.narrow-column{
     width: 150px;
 }
+.wide-column {
+    width: 70%; /* Adjust as needed */
+  }

@@ -1,7 +1,14 @@
 document.getElementById("generateBtn").addEventListener("click", updateInformation);
 
 function updateInformation() {
-    let randInt =  Math.floor(Math.random() * 83);
+    document.getElementById("name").innerHTML = `<em>loading... </em>`
+    document.getElementById("height").innerHTML = `<em>loading... </em>`
+    document.getElementById("mass").innerHTML = `<em>loading... </em>`
+    document.getElementById("homeworld").innerHTML = `<em>loading... </em>`
+    document.getElementById("films").innerHTML = `<em>loading... </em>`
+    document.getElementById("starships").innerHTML = `<em>loading... </em>`
+
+    const randInt =  Math.floor(Math.random() * 83);
     fetch("https://swapi.dev/api/people/"+randInt)
         .then(response => response.json())
         .then(data => {
@@ -37,7 +44,8 @@ function updateInformation() {
                 fetch(data.starships[i])
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById("starships").innerHTML += + `<li>${data.name}</li>`
+                    console.log(data.name)
+                    document.getElementById("starships").innerHTML += `<li>${data.name}</li>`
 
             })
             }
